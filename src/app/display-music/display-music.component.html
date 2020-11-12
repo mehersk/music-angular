@@ -1,0 +1,55 @@
+<app-banner></app-banner>
+<div class="container pt-5">
+    <div class="row pb-3">
+        <div class="col-12 text-center">
+            <h1 class="text-heading">New Releases</h1>
+        </div>
+    </div>
+    <owl-carousel-o [options]="customOptions">
+        <ng-template carouselSlide *ngFor="let release of newReleasesList">
+            <div class="music-item px-2">
+                <div class="image-part">
+                    <img src="{{release.images[1].url}}" alt="" class="img-fluid">
+                    <a [routerLink]="['/newRelease', release.id]" routerLinkActive="router-link-active"  class="text"><i class="fas fa-play-circle"></i></a>
+                </div>
+                <p [routerLink]="['/newRelease', release.id]" routerLinkActive="router-link-active">{{release.name}}</p>
+            </div>
+        </ng-template>
+    </owl-carousel-o>
+</div>
+<div class="container pt-5">
+    <div class="row pb-3">
+        <div class="col-12 text-center">
+            <h1 class="text-heading">Featured</h1>
+        </div>
+    </div>
+    <owl-carousel-o [options]="customOptions">
+        <ng-template carouselSlide *ngFor="let feature of featuredList">
+            <div class="music-item px-2">
+                <div class="image-part">
+                    <img src="{{feature.images[0].url}}" alt="" class="img-fluid">
+                    <a [routerLink]="['/playlist', feature.id]" routerLinkActive="router-link-active"  class="text"><i class="fas fa-play-circle"></i></a>
+                </div>
+                <p [routerLink]="['/playlist', feature.id]" routerLinkActive="router-link-active" >{{feature.name}}</p>
+            </div>
+        </ng-template>
+    </owl-carousel-o>
+</div>
+<div class="container py-5">
+    <div class="row pb-3">
+        <div class="col-12 text-center">
+            <h1 class="text-heading">Categories</h1>
+        </div>
+    </div>
+    <owl-carousel-o [options]="customOptions">
+        <ng-template carouselSlide *ngFor="let category of categoriesList">
+            <div class="music-item category px-2">
+                <div class="image-part">
+                    <img [routerLink]="['/category', category.id]" routerLinkActive="router-link-active"  src="{{category.icons[0].url}}" alt="" class="img-fluid">
+                    <!-- <a class="text"><i class="fas fa-play-circle"></i></a> -->
+                </div>
+                <p [routerLink]="['/category', category.id]" routerLinkActive="router-link-active" >{{category.name}}</p>
+            </div>
+        </ng-template>
+    </owl-carousel-o>
+</div>

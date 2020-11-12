@@ -1,0 +1,33 @@
+<footer class="bg-dark">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 pt-5 pb-2 text-break">
+                <div class="fheading text-uppercase" style="font-size: 14px; font-weight: bold;">New Releases</div>
+                <span *ngFor="let newRelease of newReleasesList">
+                    <span><a>{{newRelease}}</a></span>
+                    <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+                </span>
+            </div>
+            <div class="col-md-4 pt-5 pb-2 text-break">
+                <div class="fheading text-uppercase" style="font-size: 14px; font-weight: bold;">Featured</div>
+                <span *ngFor="let featured of featuredList">
+                    <span><a>{{featured}}</a></span>
+                    <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+                </span>
+            </div>
+            <div class="col-md-4 pt-5 pb-2 text-break">
+                <div class="fheading text-uppercase" style="font-size: 14px; font-weight: bold;">Categories</div>
+                <span *ngFor="let category of categoriesList">
+                    <span><a>{{category}}</a></span>
+                    <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <hr class="bg-light">
+    </div>
+    <div class="container text-light text-center pb-4">
+        <p class="mb-0 brand-name">Music App</p>
+    </div>
+</footer>

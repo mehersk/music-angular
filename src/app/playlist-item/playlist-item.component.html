@@ -1,0 +1,108 @@
+<div class="container py-5">
+    <div class="row">
+        <div class="col-12 pb-3">
+            <div class="playlist-name">
+                <h5>{{playlistName}}</h5>
+            </div>
+        </div>
+        <div class="col-5">
+            <img src="{{image}}" alt="poster" class="img-fluid">
+        </div>
+        <div class="col-7">
+            <div class="playlist-details mx-auto">
+                <div class="playlist-owner py-1">
+                    <span><strong>Playlist Owner:</strong>&nbsp;</span>
+                    <span class="owner-names">
+                        <span>{{ownerName}}</span>
+                        <span>,&nbsp;</span>
+                    </span>
+                </div>
+                <div class="playlist-owner-type py-1">
+                    <span><strong>Owner Type:</strong>&nbsp;</span>
+                    <span class="owner-type">
+                        <span>{{ownerType}}</span>
+                        <span>,&nbsp;</span>
+                    </span>
+                </div>
+                <div class="playlist-type py-1">
+                    <span><strong>Playlist Type:</strong>&nbsp;</span>
+                    <span>{{type}}</span>
+                </div>
+                <div class="followers py-1">
+                    <span><strong>No. of followers:</strong>&nbsp;</span>
+                    <span>{{followers}}</span>
+                </div>
+                <div class="description py-1">
+                    <span><strong>Description:</strong>&nbsp;</span>
+                    <span>{{description}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 text-center" *ngFor="let playlistTrack of playlistTrackList">
+            <div class="music-item px-2">
+                <div class="image-part">
+                    <img [attr.src]="playlistTrack['track']['album']['images'][1]['url']" alt="poster" class="img-fluid">
+                    <a class="text"><i class="fas fa-play-circle"></i></a>
+                </div>
+                <p>{{playlistTrack['track']['name']}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- <div class="container display-list pb-5">
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col-10">
+            <div class="accordion" id="accordionExample">
+                <div class="card pb-4" *ngFor="let track of tracksList">
+                    <div class="card-header" id="headingOne">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            {{track.name}}
+                            </button>
+                        </h2>
+                    </div>
+            
+                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                        <div class="card-body">
+                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                        </div>
+                    </div>
+                </div>
+                <div class="card pb-4">
+                    <div class="card-header" id="headingTwo">
+                    <h2 class="mb-0">
+                        <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        Collapsible Group Item #2
+                        </button>
+                    </h2>
+                    </div>
+                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                    <div class="card-body">
+                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                    </div>
+                    </div>
+                </div>
+                <div class="card pb-4">
+                    <div class="card-header" id="headingThree">
+                    <h2 class="mb-0">
+                        <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        Collapsible Group Item #3
+                        </button>
+                    </h2>
+                    </div>
+                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                    <div class="card-body">
+                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-1"></div>
+    </div>
+</div> -->

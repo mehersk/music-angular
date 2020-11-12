@@ -1,0 +1,16 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12 heading text-center py-2">
+            <h1 class="text-heading">{{categoryName}}</h1>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 text-center" *ngFor="let playlist of playlistsList">
+            <div class="music-item px-2">
+                <div class="image-part">
+                    <img [attr.src]="playlist['images'][0]['url']" alt="poster" class="img-fluid">
+                    <a class="text"><i class="fas fa-play-circle"></i></a>
+                </div>
+                <p>{{playlist.name}}</p>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,10 @@
+footer .fheading {
+  color: #e2e0dc;
+}
+footer span {
+  color: #9e9689;
+}
+footer .brand-name {
+  font-family: var(--pacifico);
+  letter-spacing: 2px;
+}

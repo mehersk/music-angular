@@ -1,0 +1,31 @@
+<header class="header_area" id="header_area" (window:scroll) = 'navbarFixed()'>
+    <div class="main-menu">
+        <nav class="navbar navbar-expand-lg navbar-light container">
+            <a class="navbar-brand" href="#">Music App</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <div class="mr-auto"></div>
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Portfolio</a>
+                    </li>
+                </ul>
+                <div class="d-flex flex-row flex-wrap">
+                    <button [routerLink]="['/login']" routerLinkActive="router-link-active"  type="button" class="btn button primary-button mr-4 text-uppercase">Login In</button>
+                    <button [routerLink]="['/register']" routerLinkActive="router-link-active"  type="button" class="btn button secondary-button text-uppercase">Sign Up</button>
+                </div>
+            </div>
+        </nav>
+    </div>
+</header>
