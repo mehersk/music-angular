@@ -50,7 +50,6 @@ export class DisplayMusicComponent implements OnInit {
       this.featuredList = response['playlists']['items'];
     }, error => {console.log(error);});
     this.spotify.getCategories().subscribe(response => {
-      console.log(response);
       this.categoriesList = response['categories']['items'];
     }, error => {console.log(error);});
     // this.spotify.getAvaliableGenreSeeds().subscribe(response => {}, error => {console.log(error);});

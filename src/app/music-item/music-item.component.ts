@@ -27,7 +27,6 @@ export class MusicItemComponent implements OnInit {
     this.id = this.router.snapshot.params['id'];
     this.spotify.getAlbumDetails(this.id)
     .subscribe(response => {
-      console.log(response);
       this.albumType = response['album_type'];
       this.artists = response['artists'];
       this.tempArr = response['images'][1];
@@ -37,7 +36,6 @@ export class MusicItemComponent implements OnInit {
       this.releaseDate = response['release_date'];
       this.totalNoTracks = response['total_tracks'];
       this.tracksList = response['tracks']['items'];
-      console.log(this.tracksList);
     }, error => {console.log(error);});
   }
 
