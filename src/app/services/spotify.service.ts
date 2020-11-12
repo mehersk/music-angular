@@ -7,7 +7,7 @@ import { Injectable } from '@angular/core';
 export class SpotifyService {
 
   tokenHeader: HttpHeaders = new HttpHeaders({
-    'Authorization': 'Bearer BQA80wMlyKQZQQpTibMbxI3LzjDt4Z58at5-A_BwB1-mfptmG9_lsLDCryQiviCj-xjoxlYI9Z8QuXKfHmN4O0Xw6B3MwKMIT8-Yrz6DfncZn-e_1uau4Wb4BnOGg1bG2_WS4Ed5rTkRYIvpsQRW5Y3H8if0muCs0ay6ru9jo3GKQbt3EjV820vzcp-KtXPHJNZ5BHIAQ71NQ4C7sbcHactw-Z_BT62CxEqcw1drA5wGdJwUqy_GPhsXoRJYLIvxDHjRi7cvZ_SeUGY61Uiqf-5Yo-I2n8neMWc'
+    'Authorization': 'Bearer BQDM26B-PBNY7cTsZR94r2UNSgACDfG1fDMzWl91_9NOr29OmU4eWYtnJGtRUpvllypZ7fXkhDNj0Vq1NaMZJTkwEjbbXKRYjWYvxynzHenC93RQAcHZyBDpxYkr9tG-ptHaM0oFXStAJK08FY0-q1tYkdLjWlsCiZiyC9m_p62W7WjPHT1QKmqg-evp67424Ck0t4_dQQKDVn0qG5wBHk3MRFv1Ihl03VG19Up8yfIF-3ywMHvCeEOz49gGkquX-6w9logc8VnycopMT3ZFJ43Y_vUnRPhzPBM'
   });
 
   constructor( private http: HttpClient) { }
