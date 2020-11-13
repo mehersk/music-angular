@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { OwlOptions } from 'ngx-owl-carousel-o';
+import { CustomService } from '../services/custom.service';
 import { SpotifyService } from '../services/spotify.service';
 
 @Component({
@@ -40,19 +41,34 @@ export class DisplayMusicComponent implements OnInit {
     nav: true
   };
 
-  constructor(private spotify: SpotifyService) { }
+  constructor(private spotify: SpotifyService, private custom: CustomService) { }
 
   ngOnInit(): void {
     this.spotify.getNewReleases().subscribe(response => {
       this.newReleasesList = response['albums']['items'];
-    }, error => console.log(error));
+    }, error => {
+      this.custom.getNewReleases().subscribe(cresponse => {
+        this.newReleasesList = cresponse['albums']['items'];
+      }, cerror => {console.log(cerror);});
+    });
+
     this.spotify.getFeauredPlayLists().subscribe(response => {
       this.featuredList = response['playlists']['items'];
-    }, error => {console.log(error);});
+    }, error => {
+      this.custom.getFeauredPlayLists().subscribe(cresponse => {
+        this.featuredList = cresponse['playlists']['items'];
+      }, cerror => {console.log(cerror);})
+    });
+
     this.spotify.getCategories().subscribe(response => {
+      console.log(response);
       this.categoriesList = response['categories']['items'];
-    }, error => {console.log(error);});
-    // this.spotify.getAvaliableGenreSeeds().subscribe(response => {}, error => {console.log(error);});
+    }, error => {
+      this.custom.getCategories().subscribe(cresponse => {
+        this.categoriesList = cresponse['categories']['items'];
+      }, cerror => {console.log(cerror);})
+    });
+    
   }
 
 }

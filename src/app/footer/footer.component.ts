@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CustomService } from '../services/custom.service';
 import { SpotifyService } from '../services/spotify.service';
 
 @Component({
@@ -9,13 +10,11 @@ import { SpotifyService } from '../services/spotify.service';
 export class FooterComponent implements OnInit {
 
   tempList: Array<any>;
-  newReleasesList: Array<string> = ["Holy", "Diamonds", "High & Dry", "Hot Stuff", "folklore", "Nobody's Love", "Take You Dancing", "supercuts", "UN DIA (ONE DAY) (Feat. Tainy)", "PEACE", "Coño", "Slow Grenade", "Wash Us In The Blood", "Chromatica", "TKN (feat. Travis Scott)", "Golden Hour", "Dark", "Together", "Fallin'"];
+  newReleasesList: Array<string>;
+  featuredList: Array<string>;
+  categoriesList: Array<string>;
 
-  featuredList: Array<string> = ["Shubh Night", "REM sleep", "Nidra", "Iniya Iravu", "Jaamu Rathiri...", "Chill Station", "Bolly Melancholy", "Tuteya Dil", "Kolly Melancholy", "Tolly Melancholy", "Marathi Sad Songs", "Sad Indie Bops", "Raaja Rules 90s", "Ghazal Gulfam"];
-
-  categoriesList: Array<string> = ["Top Lists", "At Home", "Pop", "RADAR", "Wellness", "Bollywood", "Diwali", "Romance", "Punjabi", "Party", "Tamil", "Indie", "Telugu", "Marathi", "Summer", "Dance/Electronic", "Hip Hop", "R&B", "Tastemakers", "Rock"];
-
-  constructor(private spotify: SpotifyService) { }
+  constructor(private spotify: SpotifyService, private custom: CustomService) { }
 
   ngOnInit(): void {
     this.spotify.getNewReleases().subscribe(response => {
@@ -25,7 +24,16 @@ export class FooterComponent implements OnInit {
         tArray.push(temp.name);
       }
       this.newReleasesList = tArray;
-    }, error => console.log(error));
+    }, error => {
+      this.custom.getNewReleases().subscribe(cresponse => {
+        this.tempList = cresponse['albums']['items'];
+        var tArray = new Array();
+        for (var temp of this.tempList) {
+          tArray.push(temp.name);
+        }
+        this.newReleasesList = tArray;
+      }, cerror => {console.log(cerror);});
+    });
 
     this.spotify.getFeauredPlayLists().subscribe(response => {
       this.tempList = response['playlists']['items'];
@@ -34,7 +42,16 @@ export class FooterComponent implements OnInit {
         tArray.push(temp.name);
       }
       this.featuredList = tArray;
-    }, error => {console.log(error);});
+    }, error => {
+      this.custom.getFeauredPlayLists().subscribe(cresponse => {
+        this.tempList = cresponse['playlists']['items'];
+        var tArray = new Array();
+        for (var temp of this.tempList) {
+          tArray.push(temp.name);
+        }
+        this.featuredList = tArray;
+      }, cerror => {console.log(cerror);})
+    });
 
     this.spotify.getCategories().subscribe(response => {
       this.tempList = response['categories']['items'];
@@ -43,9 +60,17 @@ export class FooterComponent implements OnInit {
         tArray.push(temp.name);
       }
       this.categoriesList = tArray;
-    }, error => {console.log(error);});
+    }, error => {
+      this.custom.getCategories().subscribe(cresponse => {
+        this.tempList = cresponse['categories']['items'];
+        var tArray = new Array();
+        for (var temp of this.tempList) {
+          tArray.push(temp.name);
+        }
+        this.categoriesList = tArray;
+      }, cerror => {console.log(cerror);})
+    });
 
-    // this.spotify.getAvaliableGenreSeeds().subscribe(response => {}, error => {console.log(error);});
   }
 
 }
